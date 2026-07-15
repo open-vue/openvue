@@ -1,0 +1,43 @@
+name: Feature request
+description: Suggest a new component, prop, or improvement for OpenVue.
+title: 'Feature: '
+labels:
+  - 'Status: Needs Triage'
+  - 'Type: Enhancement'
+body:
+  - type: markdown
+    attributes:
+      value: >
+        Thanks for taking the time to suggest an improvement. Before opening a
+        request, please search existing issues and discussions to check it
+        hasn't already been proposed.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the use case or limitation you're running into.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: How would you like this to work? Include API/prop names if relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any workarounds or alternative approaches you've tried.
+    validations:
+      required: false
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Are you willing to submit a PR for this?
+      options:
+        - label: Yes, I'd like to work on this
+        - label: No, but I'm happy to help test it
+    validations:
+      required: false

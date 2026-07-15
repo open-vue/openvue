@@ -1,5 +1,5 @@
 name: Bug report
-description: Create a report to help PrimeVue improve.
+description: Create a report to help OpenVue improve.
 title: Issue Title
 labels:
   - 'Status: Needs Triage'
@@ -10,42 +10,32 @@ body:
         ## Overview
 
 
-        PrimeVue receives close to 1 million downloads per month. As any other popular OSS project, you may understand that the core team does not have the bandwidth to review each and every issue in detail in their daily routines. We have established strict guidelines for issue creation to ensure we can effectively address issues. It will help us prioritize and manage our workload efficiently.
+        OpenVue is maintained by a small team of volunteers, so we ask that you follow the guidelines below when opening a bug report. It helps us triage issues quickly and use our limited time effectively.
 
-
-        Adhering to these guidelines, you help us maintain and improve the project more effectively. If you'd like to get our detailed attention, consider PrimeVue PRO Support instead, which provides support within one business day. Thank you for your cooperation and contributions!
-
-        ## Prioritization
-
-        Our team uses several metrics, including the number of comments and reactions, to prioritize issue tickets. As a result, issues with the highest demand receive more attention and information.
 
         ## Issue Creation Guidelines
 
 
-        To help us assist you better, please follow these mandatory requirements when creating an issue:
-
-
-        **Important:** Our bot will automatically close issues that do not follow these guidelines.
+        To help us assist you better, please follow these requirements when creating an issue:
 
 
         ### Reproducer
 
 
-        Provide a clear and concise executable example that reproduces the issue based on our StackBlitz template.
+        Provide a clear and concise example that reproduces the issue. StackBlitz or CodeSandbox both work well.
 
 
-        ### PrimeVue Version
+        ### OpenVue Version
 
-        Ensure that you are using PrimeVue version v4.
-
+        Let us know which version of OpenVue you're using.
 
         ### Provide a Pull Request
 
-        We highly encourage contributions from the community! If you have the time and ability, consider submitting a pull request to address this issue. Here's how you can get started:
+        We welcome contributions from the community! If you have the time and ability, consider submitting a pull request to address this issue. Here's how you can get started:
 
           1. Fork the repository.
           2. Create a new branch (`git checkout -b feature/YourFeatureName`).
-          3. Run "npm run dev" command to deploy the showcase locally using the monorepo.
+          3. Run `pnpm run dev` to run the showcase locally from the monorepo.
           4. Make your changes.
           5. Commit your changes (`git commit -m 'Add some feature'`).
           6. Push to the branch (`git push origin feature/YourFeatureName`).
@@ -54,13 +44,13 @@ body:
         ### Reason for No PR
 
 
-        If you are unable to provide a PR, please explain why. Understanding the reasons can help us improve and assist you in contributing.
+        If you are unable to provide a PR, please explain why. Understanding the reasons helps us improve and support contributors.
 
 
         ### Discussions and Questions
 
 
-        Please refrain from creating issue tickets for questions or support requests. Instead, use the GitHub Discussions or join the PrimeLand  Discord server for assistance.
+        Please avoid opening issue tickets for questions or support requests. Use GitHub Discussions instead.
 
 
         ## New Issue Report
@@ -102,12 +92,10 @@ body:
     id: reproducer
     attributes:
       label: Reproducer
-      placeholder: 'https://stackblitz.com/edit/primevue-4-vite-issue-template'
+      placeholder: 'https://stackblitz.com/edit/...'
       description: >-
-        Issues **without** a StackBlitz example will be closed automatically.
-        Please fork one of the issue template [PrimeVue Issue
-        Template](https://stackblitz.com/edit/primevue-4-vite-issue-template)
-        and create a case demonstrating your bug report.
+        A link to a minimal reproduction of the bug. Issues without a
+        reproducer take much longer to triage.
     validations:
       required: true
   - type: textarea
@@ -125,12 +113,10 @@ body:
     validations:
       required: true
   - type: input
-    id: primevue-version
+    id: openvue-version
     attributes:
-      label: PrimeVue version
-      placeholder: 4.x.x
-      description: >-
-        Only issues related to v4 are valid.
+      label: OpenVue version
+      placeholder: x.x.x
     validations:
       required: true
   - type: input
