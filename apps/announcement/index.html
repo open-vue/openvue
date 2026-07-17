@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenVue — Let's keep Vue open, together.</title>
+    <meta name="description" content="Openvi Foundation is a community-driven continuation of PrimeVue v4 — free, open source, and MIT licensed, forever." />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <main class="page">
+        <div class="glow" aria-hidden="true"></div>
+
+        <header class="hero">
+            <p class="eyebrow">Openvi Foundation presents</p>
+            <h1>Let's keep Vue open, together.</h1>
+            <p class="subhead">A community-driven continuation of PrimeVue v4 <br/>free, open, and MIT licensed.</p>
+        </header>
+
+        <section class="body">
+            <p>Hey Vue community,</p>
+            <p>We are long-time PrimeVue users who believe that a great UI component library should remain free, open, and community-driven forever. When PrimeVue v5 launched with a license change that moved the library away from open source, we knew we had to do something.</p>
+            <p><strong>Openvi Foundation</strong> is an independent, community-driven organization dedicated to maintaining and evolving open source UI tooling for the Vue ecosystem. We are not affiliated with the PrimeVue team or Primetek.</p>
+            <p><strong>OpenVue</strong> is a fork of PrimeVue v4, the last fully open source version. Our goal is simple: keep it MIT licensed, keep it maintained, and keep it free for every Vue developer, forever.</p>
+            <p>We are in the early stages, but we are committed to this for the long run. If you want to help, star the repo, join the discussion, or just spread the word.</p>
+            <p class="signoff">This is day one. Let's keep Vue open together.<br />— Openvi Foundation</p>
+        </section>
+
+        <section class="cta">
+            <a class="button button-primary" href="https://github.com/openvi-foundation/openvue" target="_blank" rel="noopener">Star on GitHub</a>
+            <a class="button" href="https://github.com/openvi-foundation/openvue/discussions" target="_blank" rel="noopener">Join the discussion</a>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; <span id="year"></span> Openvi Foundation. OpenVue is not affiliated with PrimeVue or Primetek.</p>
+        </footer>
+    </main>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
