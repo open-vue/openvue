@@ -3,14 +3,14 @@
         <div class="flex flex-col items-center">
             <h1 class="text-5xl font-bold text-center xl:text-left leading-tight">The Next-Gen UI Suite for <span class="font-bold text-primary">Vue.js</span></h1>
             <p class="text-center mt-0 mb-8 text-surface-500 dark:text-surface-400 font-medium text-xl leading-relaxed lg:px-56">
-                Enhance your web applications with PrimeVue's comprehensive suite of customizable, feature-rich UI components. With PrimeVue, turning your development vision into reality has never been easier.
+                Enhance your web applications with OpenVue's comprehensive suite of customizable, feature-rich UI components. With OpenVue, turning your development vision into reality has never been easier.
             </p>
             <div class="flex items-center gap-4">
-                <PrimeVueNuxtLink to="/setup" class="linkbox linkbox-primary" @click="onGetStartedClick">
+                <OpenVueNuxtLink to="/setup" class="linkbox linkbox-primary">
                     <span>Get Started </span>
                     <i class="pi pi-arrow-right ms-4"></i>
-                </PrimeVueNuxtLink>
-                <a href="https://github.com/primefaces/primevue" target="_blank" rel="noopener noreferrer" class="linkbox">
+                </OpenVueNuxtLink>
+                <a href="https://github.com/openvi-foundation/openvue" target="_blank" rel="noopener noreferrer" class="linkbox">
                     <span>Give a Star</span>
                     <i class="pi pi-star-fill ms-4 text-yellow-500"></i>
                 </a>
@@ -513,9 +513,6 @@ export default {
         toggleSlimMenu() {
             this.isSlimMenu = !this.isSlimMenu;
             this.isSlimMenuSelected = this.isSlimMenu;
-        },
-        onGetStartedClick() {
-            this.$appState.designer.active = false;
         },
         setChartData() {
             const documentStyle = getComputedStyle(document.documentElement);

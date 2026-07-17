@@ -1,7 +1,7 @@
 <template>
     <section class="landing-features py-20">
         <div class="section-header">Features</div>
-        <p class="section-detail">PrimeVue is the most complete solution for your UI requirements.</p>
+        <p class="section-detail">OpenVue is the most complete solution for your UI requirements.</p>
         <div class="mt-16 px-8 lg:px-20">
             <div class="features-container">
                 <div class="grid grid-cols-12 gap-4">
