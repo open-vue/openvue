@@ -1,1 +1,1 @@
-# PrimeVue AutoImportResolver
+# OpenVue AutoImportResolver

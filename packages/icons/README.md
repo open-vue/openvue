@@ -1,1 +1,1 @@
-# PrimeVue Icons
+# OpenVue Icons
