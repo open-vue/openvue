@@ -1,1 +1,1 @@
-# PrimeVue Core
+# OpenVue Core
