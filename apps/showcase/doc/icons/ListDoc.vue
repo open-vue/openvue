@@ -1,6 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Here is the full list of PrimeIcons. More icons will be added periodically and you may also <a href="https://github.com/primefaces/primeicons/issues">request new icons</a> at the issue tracker.</p>
+        <p>
+            Here is the full list of OpenIcons. More icons will be added periodically and you may also
+            <a href="https://github.com/openvi-foundation/openicons/issues">request new icons</a> at the issue tracker.
+        </p>
     </DocSectionText>
 
     <InputText v-model="filter" class="w-full p-4 mt-4 mb-6" placeholder="Search an icon" />
@@ -9,7 +12,7 @@
         <div class="grid grid-cols-12 gap-4 text-center">
             <div v-for="icon of filteredIcons" :key="icon.properties.name" class="col-span-12 md:col-span-2 mb-8">
                 <i :class="'text-2xl mb-4 text-surface-500 dark:text-surface-400 pi pi-' + icon.properties.name"></i>
-                <div>pi-{{ icon.properties.name }}</div>
+                <div>oi-{{ icon.properties.name }}</div>
             </div>
         </div>
     </div>

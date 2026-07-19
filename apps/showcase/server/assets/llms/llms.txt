@@ -7,7 +7,7 @@
 - [Styled Mode](https://primevue.org/styled): Choose from a variety of pre-styled themes or develop your own.
 - [Unstyled Mode](https://primevue.org/unstyled): Theming OpenVue with alternative styling approaches.
 - [Pass Through](https://primevue.org/passthrough): The Pass Through attributes is an API to access the internal DOM Structure of the components.
-- [Icons](https://primevue.org/icons): PrimeIcons is the default icon library of OpenVue with over 250 open source icons developed by PrimeTek. PrimeIcons library is optional as OpenVue components can use any icon with templating.
+- [Icons](https://primevue.org/icons): OpenIcons is the default icon library of OpenVue with over 250 open source icons maintained by the OpenVi Foundation. OpenIcons is optional as OpenVue components can use any icon with templating.
 - [Custom Icons](https://primevue.org/customicons): OpenVue components can be used with any icon library using the templating features.
 - [Forms](https://primevue.org/forms): The OpenVue Forms library provides comprehensive form state management with built-in validation support.
 - [Auto Import](https://primevue.org/autoimport): On-demand OpenVue components with auto imports and tree-shaking.

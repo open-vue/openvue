@@ -1,8 +1,8 @@
 <template>
     <div>
         <Head>
-            <Title>Vue Icon Library - OpenVue</Title>
-            <Meta name="description" content="PrimeIcons is the default icon library of OpenVue with over 250 open source icons developed by PrimeTek. PrimeIcons library is optional as OpenVue components can use any icon with templating." />
+            <Title>OpenIcons - OpenVue</Title>
+            <Meta name="description" content="OpenIcons is the default icon library of OpenVue with over 250 open source icons. OpenIcons is optional as OpenVue components can use any icon with templating." />
         </Head>
 
         <div class="doc">
@@ -12,8 +12,8 @@
                         <div class="flex-1">
                             <h1>Icons</h1>
                             <p>
-                                <a href="https://github.com/primefaces/primeicons"> PrimeIcons </a>
-                                is the default icon library of OpenVue with over 250 open source icons developed by PrimeTek. PrimeIcons library is optional as OpenVue components can use any icon with templating.
+                                <a href="https://github.com/openvi-foundation/openicons" target="_blank" rel="noopener noreferrer">OpenIcons</a>
+                                is the default icon library of OpenVue with over 250 open source icons maintained by the OpenVi Foundation. OpenIcons is optional as OpenVue components can use any icon with templating.
                             </p>
                         </div>
                         <DocCopyMarkdown docType="page" class="flex-shrink-0" />
@@ -30,9 +30,9 @@
 import DocCopyMarkdown from '@/components/doc/DocCopyMarkdown.vue';
 import BasicDoc from '@/doc/icons/BasicDoc.vue';
 import ColorDoc from '@/doc/icons/ColorDoc.vue';
+import CompatibilityDoc from '@/doc/icons/CompatibilityDoc.vue';
 import ConstantsDoc from '@/doc/icons/ConstantsDoc.vue';
 import DownloadDoc from '@/doc/icons/DownloadDoc.vue';
-import FigmaDoc from '@/doc/icons/FigmaDoc.vue';
 import ImportDoc from '@/doc/icons/ImportDoc.vue';
 import ListDoc from '@/doc/icons/ListDoc.vue';
 import SizeDoc from '@/doc/icons/SizeDoc.vue';
@@ -54,9 +54,9 @@ export default {
                     component: ImportDoc
                 },
                 {
-                    id: 'figma',
-                    label: 'Figma',
-                    component: FigmaDoc
+                    id: 'compatibility',
+                    label: 'Compatibility',
+                    component: CompatibilityDoc
                 },
                 {
                     id: 'basic',

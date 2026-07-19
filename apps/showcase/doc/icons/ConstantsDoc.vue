@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Constants API is available to reference icons easily when used programmatically.</p>
+        <p>Constants API is available to reference icons easily when used programmatically. The exported values still resolve to the legacy <i>pi-&#123;icon&#125;</i> class names, which the compatibility stylesheet maps onto the OpenIcons font.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <Menu :model="items" />
