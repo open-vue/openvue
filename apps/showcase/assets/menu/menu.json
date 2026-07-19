@@ -559,6 +559,20 @@
             "to": "/forms"
         },
         {
+            "name": "Icons",
+            "icon": "pi pi-eye",
+            "children": [
+                {
+                    "name": "OpenIcons",
+                    "to": "/icons"
+                },
+                {
+                    "name": "Custom Icons",
+                    "to": "/customicons"
+                }
+            ]
+        },
+        {
             "name": "Discover",
             "icon": "pi pi-search",
             "children": [

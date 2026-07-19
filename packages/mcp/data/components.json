@@ -39107,14 +39107,14 @@
       "name": "icons",
       "path": "icons",
       "title": "Icons",
-      "description": "PrimeIcons is the default icon library of OpenVue with over 250 open source icons developed by PrimeTek. PrimeIcons library is optional as OpenVue components can use any icon with templating.",
+      "description": "OpenIcons is the default icon library of OpenVue with over 250 open source icons maintained by the OpenVi Foundation. OpenIcons is optional as OpenVue components can use any icon with templating.",
       "sections": [
         {
           "id": "basic",
           "label": "Basic",
-          "description": "PrimeIcons use the pi pi-&#123;icon&#125; syntax such as pi pi-check . A standalone icon can be displayed using an element such as i or span",
+          "description": "OpenIcons use the oi oi-&#123;icon&#125; syntax such as oi oi-check . A standalone icon can be displayed using an element such as i or span",
           "examples": {
-            "basic": "<i class=\"pi pi-check\"></i>\n<i class=\"pi pi-times\"></i>\n<span class=\"pi pi-search\"></span>\n<span class=\"pi pi-user\"></span>"
+            "basic": "<i class=\"oi oi-check\"></i>\n<i class=\"oi oi-times\"></i>\n<span class=\"oi oi-search\"></span>\n<span class=\"oi oi-user\"></span>"
           }
         },
         {
@@ -39122,13 +39122,19 @@
           "label": "Color",
           "description": "Icon color is defined with the color property which is inherited from parent by default.",
           "examples": {
-            "basic": "<i class=\"pi pi-check\" style=\"color: slateblue\"></i>\n<i class=\"pi pi-times\" style=\"color: green\"></i>\n<i class=\"pi pi-search\" style=\"color: 'var(--p-primary-color)'\"></i>\n<i class=\"pi pi-user\" style=\"color: #708090\"></i>"
+            "basic": "<i class=\"oi oi-check\" style=\"color: slateblue\"></i>\n<i class=\"oi oi-times\" style=\"color: green\"></i>\n<i class=\"oi oi-search\" style=\"color: 'var(--p-primary-color)'\"></i>\n<i class=\"oi oi-user\" style=\"color: #708090\"></i>"
           }
+        },
+        {
+          "id": "compatibility",
+          "label": "Compatibility",
+          "description": "OpenIcons ships a compatibility stylesheet that aliases the legacy pi pi-&#123;icon&#125; class names onto the OpenIcons font. Import it instead of openicons.css and markup written against PrimeIcons keeps rendering without changes, which lets an existing project swap the dependency in one step. New code should use the oi prefix. For projects migrating away from the primeicons package, @openvue/openicons/primeicons.css resolves to the same compatibility layer so existing import statements can stay untouched.",
+          "examples": null
         },
         {
           "id": "constants",
           "label": "Constants",
-          "description": "Constants API is available to reference icons easily when used programmatically.",
+          "description": "Constants API is available to reference icons easily when used programmatically. The exported values still resolve to the legacy pi-&#123;icon&#125; class names, which the compatibility stylesheet maps onto the OpenIcons font.",
           "examples": {
             "basic": "<template>\n    <div class=\"card flex justify-center\">\n        <Menu :model=\"items\" />\n    </div>\n</template>\n\n<script>\nimport { PrimeIcons } from '@openvue/core/api';\n\nexport default {\n    data() {\n        return {\n            items: [\n                {\n                    label: 'File',\n                    items: [\n                        { label: 'New', icon: PrimeIcons.PLUS },\n                        { label: 'Open', icon: PrimeIcons.DOWNLOAD }\n                    ]\n                }\n            ]\n        };\n    }\n};\n<\\/script>"
           }
@@ -39136,27 +39142,21 @@
         {
           "id": "download",
           "label": "Download",
-          "description": "PrimeIcons is available at npm, run the following command to download it to your project.",
+          "description": "OpenIcons is available at npm, run the following command to download it to your project.",
           "examples": {
-            "basic": "npm install primeicons"
+            "basic": "npm install @openvue/openicons"
           }
-        },
-        {
-          "id": "figma",
-          "label": "Figma",
-          "description": "PrimeIcons library is now available on Figma Community . By adding them as a library, you can easily use these icons in your designs.",
-          "examples": null
         },
         {
           "id": "import",
           "label": "Import",
-          "description": "CSS file of the icon library needs to be imported in styles.scss of your application.",
+          "description": "CSS file of the icon library needs to be imported at the entry point of your application.",
           "examples": null
         },
         {
           "id": "list",
           "label": "List",
-          "description": "Here is the full list of PrimeIcons. More icons will be added periodically and you may also request new icons at the issue tracker.",
+          "description": "Here is the full list of OpenIcons. More icons will be added periodically and you may also request new icons at the issue tracker.",
           "examples": null
         },
         {
@@ -39164,15 +39164,15 @@
           "label": "Size",
           "description": "Size of an icon is controlled with the font-size property of the element.",
           "examples": {
-            "basic": "<i class=\"pi pi-check\" style=\"font-size: 1rem\"></i>\n<i class=\"pi pi-times\" style=\"font-size: 1.5rem\"></i>\n<i class=\"pi pi-search\" style=\"font-size: 2rem\"></i>\n<i class=\"pi pi-user\" style=\"font-size: 2.5rem\"></i>"
+            "basic": "<i class=\"oi oi-check\" style=\"font-size: 1rem\"></i>\n<i class=\"oi oi-times\" style=\"font-size: 1.5rem\"></i>\n<i class=\"oi oi-search\" style=\"font-size: 2rem\"></i>\n<i class=\"oi oi-user\" style=\"font-size: 2.5rem\"></i>"
           }
         },
         {
           "id": "spin",
           "label": "Spin",
-          "description": "Special pi-spin class applies infinite rotation to an icon.",
+          "description": "Special oi-spin class applies infinite rotation to an icon.",
           "examples": {
-            "basic": "<i class=\"pi pi-spin pi-spinner\" style=\"font-size: 2rem\"></i>\n<i class=\"pi pi-spin pi-cog\" style=\"font-size: 2rem\"></i>"
+            "basic": "<i class=\"oi oi-spin oi-spinner\" style=\"font-size: 2rem\"></i>\n<i class=\"oi oi-spin oi-cog\" style=\"font-size: 2rem\"></i>"
           }
         }
       ]

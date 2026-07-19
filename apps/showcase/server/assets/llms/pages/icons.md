@@ -1,16 +1,16 @@
 # Icons
 
-PrimeIcons is the default icon library of OpenVue with over 250 open source icons developed by PrimeTek. PrimeIcons library is optional as OpenVue components can use any icon with templating.
+OpenIcons is the default icon library of OpenVue with over 250 open source icons maintained by the OpenVi Foundation. OpenIcons is optional as OpenVue components can use any icon with templating.
 
 ## Basic
 
-PrimeIcons use the pi pi-&#123;icon&#125; syntax such as pi pi-check . A standalone icon can be displayed using an element such as i or span
+OpenIcons use the oi oi-&#123;icon&#125; syntax such as oi oi-check . A standalone icon can be displayed using an element such as i or span
 
 ```vue
-<i class="pi pi-check"></i>
-<i class="pi pi-times"></i>
-<span class="pi pi-search"></span>
-<span class="pi pi-user"></span>
+<i class="oi oi-check"></i>
+<i class="oi oi-times"></i>
+<span class="oi oi-search"></span>
+<span class="oi oi-user"></span>
 ```
 
 ## Color
@@ -18,15 +18,19 @@ PrimeIcons use the pi pi-&#123;icon&#125; syntax such as pi pi-check . A standal
 Icon color is defined with the color property which is inherited from parent by default.
 
 ```vue
-<i class="pi pi-check" style="color: slateblue"></i>
-<i class="pi pi-times" style="color: green"></i>
-<i class="pi pi-search" style="color: 'var(--p-primary-color)'"></i>
-<i class="pi pi-user" style="color: #708090"></i>
+<i class="oi oi-check" style="color: slateblue"></i>
+<i class="oi oi-times" style="color: green"></i>
+<i class="oi oi-search" style="color: 'var(--p-primary-color)'"></i>
+<i class="oi oi-user" style="color: #708090"></i>
 ```
+
+## Compatibility
+
+OpenIcons ships a compatibility stylesheet that aliases the legacy pi pi-&#123;icon&#125; class names onto the OpenIcons font. Import it instead of openicons.css and markup written against PrimeIcons keeps rendering without changes, which lets an existing project swap the dependency in one step. New code should use the oi prefix. For projects migrating away from the primeicons package, @openvue/openicons/primeicons.css resolves to the same compatibility layer so existing import statements can stay untouched.
 
 ## Constants
 
-Constants API is available to reference icons easily when used programmatically.
+Constants API is available to reference icons easily when used programmatically. The exported values still resolve to the legacy pi-&#123;icon&#125; class names, which the compatibility stylesheet maps onto the OpenIcons font.
 
 ```vue
 <template>
@@ -58,41 +62,37 @@ export default {
 
 ## Download
 
-PrimeIcons is available at npm, run the following command to download it to your project.
+OpenIcons is available at npm, run the following command to download it to your project.
 
 ```vue
-npm install primeicons
+npm install @openvue/openicons
 ```
-
-## Figma
-
-PrimeIcons library is now available on Figma Community . By adding them as a library, you can easily use these icons in your designs.
 
 ## Import
 
-CSS file of the icon library needs to be imported in styles.scss of your application.
+CSS file of the icon library needs to be imported at the entry point of your application.
 
 ## List
 
-Here is the full list of PrimeIcons. More icons will be added periodically and you may also request new icons at the issue tracker.
+Here is the full list of OpenIcons. More icons will be added periodically and you may also request new icons at the issue tracker.
 
 ## Size
 
 Size of an icon is controlled with the font-size property of the element.
 
 ```vue
-<i class="pi pi-check" style="font-size: 1rem"></i>
-<i class="pi pi-times" style="font-size: 1.5rem"></i>
-<i class="pi pi-search" style="font-size: 2rem"></i>
-<i class="pi pi-user" style="font-size: 2.5rem"></i>
+<i class="oi oi-check" style="font-size: 1rem"></i>
+<i class="oi oi-times" style="font-size: 1.5rem"></i>
+<i class="oi oi-search" style="font-size: 2rem"></i>
+<i class="oi oi-user" style="font-size: 2.5rem"></i>
 ```
 
 ## Spin
 
-Special pi-spin class applies infinite rotation to an icon.
+Special oi-spin class applies infinite rotation to an icon.
 
 ```vue
-<i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
-<i class="pi pi-spin pi-cog" style="font-size: 2rem"></i>
+<i class="oi oi-spin oi-spinner" style="font-size: 2rem"></i>
+<i class="oi oi-spin oi-cog" style="font-size: 2rem"></i>
 ```
 

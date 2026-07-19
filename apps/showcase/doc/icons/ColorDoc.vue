@@ -17,10 +17,10 @@ export default {
         return {
             code: {
                 basic: `
-<i class="pi pi-check" style="color: slateblue"></i>
-<i class="pi pi-times" style="color: green"></i>
-<i class="pi pi-search" style="color: 'var(--p-primary-color)'"></i>
-<i class="pi pi-user" style="color: #708090"></i>
+<i class="oi oi-check" style="color: slateblue"></i>
+<i class="oi oi-times" style="color: green"></i>
+<i class="oi oi-search" style="color: 'var(--p-primary-color)'"></i>
+<i class="oi oi-user" style="color: #708090"></i>
 `
             }
         };
