@@ -92,7 +92,7 @@ You can use OpenVue and Vue.js from a CDN with a script tag. This approach does 
 ```vue
 https://unpkg.com/vue@3/dist/vue.global.js
 https://unpkg.com/openvue/umd/openvue.min.js
-https://unpkg.com/@openvue/themes/umd/aura.min.js  // see theming for alternatives
+https://unpkg.com/@openvue/themes/umd/aura.min.js
 ```
 
 ## Theming

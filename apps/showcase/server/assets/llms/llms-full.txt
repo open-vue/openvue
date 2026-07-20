@@ -1431,7 +1431,7 @@ You can use OpenVue and Vue.js from a CDN with a script tag. This approach does 
 ```vue
 https://unpkg.com/vue@3/dist/vue.global.js
 https://unpkg.com/openvue/umd/openvue.min.js
-https://unpkg.com/@openvue/themes/umd/aura.min.js  // see theming for alternatives
+https://unpkg.com/@openvue/themes/umd/aura.min.js
 ```
 
 ## Theming
@@ -1470,11 +1470,11 @@ pnpm add openvue@alpha @primeuix/themes
 
 ## Examples
 
-We've created various samples for the popular options in the Vue ecosystem. Visit the primevue-examples repository for more samples including laravel-quickstart and inertia-quickstart .
+We've created various samples for the popular options in the Vue ecosystem. Visit the openvue-examples repository for more samples including laravel-quickstart and inertia-quickstart .
 
 ## Next Steps
 
-Welcome to the Prime UI Ecosystem! Once you have OpenVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Auto imports with tree-shaking Customization of styles Pass through attributes
+Welcome to the Openvi! Once you have OpenVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Auto imports with tree-shaking Customization of styles Pass through attributes
 
 ## Plugin
 
@@ -1674,7 +1674,7 @@ pnpm add openvue@alpha @primeuix/themes
 
 ## Examples
 
-We've created various samples for the popular options in the Vue ecosystem. Visit the primevue-examples repository for more samples including vite-quickstart and vite-ts-quickstart .
+We've created various samples for the popular options in the Vue ecosystem. Visit the openvue-examples repository for more samples including vite-quickstart and vite-ts-quickstart .
 
 ## Next Steps
 
