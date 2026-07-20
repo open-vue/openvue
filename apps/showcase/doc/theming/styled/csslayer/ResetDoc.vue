@@ -16,7 +16,7 @@ export default {
             code: {
                 basic: `
 /* Order */
-@layer reset, primevue;
+@layer reset, openvue;
 
 /* Reset CSS */
 @layer reset {

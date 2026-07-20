@@ -9,12 +9,12 @@
     <h4>Tailwind</h4>
     <p>
         Tailwind CSS includes a reset utility in base called <a href="https://tailwindcss.com/docs/preflight" target="_blank" rel="noopener noreferrer" class="doc-link">preflight</a>. If you are using this feature, wrap the base and utilities in
-        separate layers and make sure primevue layer comes after the base.
+        separate layers and make sure openvue layer comes after the base.
     </p>
     <DocSectionCode :code="code2" hideToggleCode hideStackBlitz />
 
     <h4>Normalize</h4>
-    <p>Normalize is another utility to reset CSS of the standard elements. While importing the CSS file, assign it to a layer and define the layer order with primevue coming after the normalized layer.</p>
+    <p>Normalize is another utility to reset CSS of the standard elements. While importing the CSS file, assign it to a layer and define the layer order with openvue coming after the normalized layer.</p>
     <DocSectionCode :code="code3" hideToggleCode hideStackBlitz />
 </template>
 
@@ -24,14 +24,14 @@ export default {
         return {
             code1: {
                 basic: `
-@layer bootstrap-reboot, primevue;
+@layer bootstrap-reboot, openvue;
 
 @import "bootstrap-reboot.css" layer(bootstrap-rebooot);
 `
             },
             code2: {
                 basic: `
-@layer tailwind-base, primevue, tailwind-utilities;
+@layer tailwind-base, openvue, tailwind-utilities;
 
 @layer tailwind-base {
     @tailwind base;
@@ -45,7 +45,7 @@ export default {
             },
             code3: {
                 basic: `
-@layer normalize, primevue;
+@layer normalize, openvue;
 
 @import "normalize.css" layer(normalize-reset);
 `

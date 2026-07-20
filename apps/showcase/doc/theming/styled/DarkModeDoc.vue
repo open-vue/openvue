@@ -25,7 +25,7 @@ export default {
             code1: {
                 basic: `
 import OpenVue from 'openvue/config';
-import Aura from '@primeuix/themes/aura';
+import Aura from '@openvue/themes/aura';
 
 const app = createApp(App);
 
