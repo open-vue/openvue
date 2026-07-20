@@ -11,7 +11,7 @@
         <DocSectionCode :code="code2" hideToggleCode importCode hideStackBlitz />
         <div class="font-bold mb-4">Best Practices</div>
         <ul class="leading-normal list-disc list-inside mb-4">
-            <li>Check how tokens are defined in the preset before customizing from the <a href="https://github.com/primefaces/primeuix/tree/main/packages/themes/src/presets" target="_blank" rel="noopener noreferrer">source</a>.</li>
+            <li>Check how tokens are defined in the preset before customizing from the <a href="https://github.com/openvi-foundation/openvue/tree/master/packages/themes/src/presets" target="_blank" rel="noopener noreferrer">source</a>.</li>
             <li>Always maintain the same structure (direct value or colorScheme) as the original preset.</li>
             <li>Consider both light and dark mode values when overriding scheme-dependent tokens.</li>
         </ul>
@@ -27,8 +27,8 @@ export default {
             code1: {
                 basic: `
 import OpenVue from 'openvue/config';
-import { definePreset } from '@primeuix/themes';
-import Aura from '@primeuix/themes/aura';
+import { definePreset } from '@openvue/themes';
+import Aura from '@openvue/themes/aura';
 
 const MyPreset = definePreset(Aura, {
     semantic: {

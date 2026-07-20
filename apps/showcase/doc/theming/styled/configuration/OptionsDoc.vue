@@ -41,8 +41,8 @@ options: {
                 basic: `
 options: {
     cssLayer: {
-        name: 'primevue',
-        order: 'app-styles, primevue, another-css-library'
+        name: 'openvue',
+        order: 'app-styles, openvue, another-css-library'
     }
 }
 `
