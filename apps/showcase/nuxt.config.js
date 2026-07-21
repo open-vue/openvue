@@ -106,10 +106,16 @@ export default defineNuxtConfig({
                 { name: 'twitter:card', content: 'summary_large_image' },
                 { name: 'twitter:title', content: 'OpenVue | Vue UI Component Library' },
                 { name: 'twitter:description', content: 'The ultimate collection of design-agnostic, flexible and accessible Vue UI Components.' },
+                { name: 'twitter:image', content: 'https://openvue.dev/open_vue_logo.png' },
                 { property: 'og:type', content: 'website' },
+                { property: 'og:site_name', content: 'OpenVue' },
                 { property: 'og:title', content: 'OpenVue | Vue UI Component Library' },
                 { property: 'og:url', content: 'https://openvue.dev/' },
                 { property: 'og:description', content: 'The ultimate collection of design-agnostic, flexible and accessible Vue UI Components.' },
+                { property: 'og:image', content: 'https://openvue.dev/open_vue_logo.png' },
+                { property: 'og:image:width', content: '2400' },
+                { property: 'og:image:height', content: '2400' },
+                { property: 'og:image:alt', content: 'OpenVue - Vue UI Component Library' },
                 { property: 'og:ttl', content: '604800' }
             ],
             link: [
