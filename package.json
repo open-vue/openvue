@@ -1,6 +1,6 @@
 {
     "name": "@openvue/monorepo",
-    "version": "0.0.1-alpha.4",
+    "version": "0.0.1-alpha.5",
     "author": "OpenVue Contributors",
     "homepage": "https://github.com/openvi-foundation/openvue",
     "repository": {
@@ -13,7 +13,7 @@
     },
     "scripts": {
         "setup": "pnpm run clean && pnpm run init",
-        "clean": "npx rimraf --glob **/node_modules **/dist **/.nuxt ./pnpm-lock.yaml",
+        "clean": "npx rimraf --glob \"**/node_modules\" \"**/dist\" \"**/.nuxt\" ./pnpm-lock.yaml",
         "init": "pnpm install",
         "link": "pnpm --filter './packages/*' dev:link",
         "release": "pnpm run build && pnpm run verify:dist && pnpm recursive publish --filter './packages/*' --no-git-checks --report-summary",
