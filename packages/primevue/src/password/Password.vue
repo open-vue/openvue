@@ -32,14 +32,18 @@
             :unstyled="unstyled"
         />
         <!-- TODO: hideicon and showicon slots are deprecated since v4.0-->
-        <slot v-if="toggleMask && unmasked" :name="$slots.maskicon ? 'maskicon' : 'hideicon'" :toggleCallback="onMaskToggle" :class="[cx('maskIcon'), maskIcon]" v-bind="ptm('maskIcon')">
-            <component :is="maskIcon ? 'i' : 'EyeSlashIcon'" :class="[cx('maskIcon'), maskIcon]" @click="onMaskToggle" v-bind="ptm('maskIcon')" />
-        </slot>
-        <slot v-if="toggleMask && !unmasked" :name="$slots.unmaskicon ? 'unmaskicon' : 'showicon'" :toggleCallback="onMaskToggle" :class="[cx('unmaskIcon')]" v-bind="ptm('unmaskIcon')">
-            <component :is="unmaskIcon ? 'i' : 'EyeIcon'" :class="[cx('unmaskIcon'), unmaskIcon]" @click="onMaskToggle" v-bind="ptm('unmaskIcon')" />
-        </slot>
+        <button v-if="toggleMask" type="button" :class="unmasked ? cx('maskIcon') : cx('unmaskIcon')" :style="sx(unmasked ? 'maskIcon' : 'unmaskIcon')" :aria-label="unmasked ? hidePasswordText : showPasswordText" @click="onMaskToggle" v-bind="ptm(unmasked ? 'maskIcon' : 'unmaskIcon')">
+            <slot v-if="unmasked" :name="$slots.maskicon ? 'maskicon' : 'hideicon'" :toggleCallback="onMaskToggle" :class="[cx('maskIcon'), maskIcon]" v-bind="ptm('maskIcon')">
+                <component :is="maskIcon ? 'i' : 'EyeSlashIcon'" :class="maskIcon" aria-hidden="true" />
+            </slot>
+            <slot v-else :name="$slots.unmaskicon ? 'unmaskicon' : 'showicon'" :toggleCallback="onMaskToggle" :class="[cx('unmaskIcon')]" v-bind="ptm('unmaskIcon')">
+                <component :is="unmaskIcon ? 'i' : 'EyeIcon'" :class="unmaskIcon" aria-hidden="true" />
+            </slot>
+        </button>
         <slot v-if="isClearIconVisible" name="clearicon" :class="cx('clearIcon')" :clearCallback="onClearClick" v-bind="ptm('clearIcon')">
-            <TimesIcon :class="[cx('clearIcon')]" @click="onClearClick" v-bind="ptm('clearIcon')" />
+            <button ref="clearButton" type="button" :class="cx('clearIcon')" :style="sx('clearIcon')" :aria-label="clearText" @click="onClearClick" v-bind="ptm('clearIcon')">
+                <TimesIcon aria-hidden="true" />
+            </button>
         </slot>
         <span class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenAccesible')" :data-p-hidden-accessible="true">
             {{ infoText }}
@@ -303,7 +307,15 @@ export default {
             this.unmasked = !this.unmasked;
         },
         onClearClick(event) {
+            const shouldRefocusInput = document.activeElement === this.$refs.clearButton;
+
             this.writeValue(null, {});
+
+            if (shouldRefocusInput) {
+                this.$nextTick(() => {
+                    this.$refs.input?.$el?.focus();
+                });
+            }
         },
         onOverlayClick(event) {
             OverlayEventBus.emit('overlay-click', {
@@ -327,6 +339,15 @@ export default {
         },
         promptText() {
             return this.promptLabel || this.$primevue.config.locale.passwordPrompt;
+        },
+        hidePasswordText() {
+            return this.hidePasswordLabel || this.$primevue.config.locale.aria.hidePassword;
+        },
+        showPasswordText() {
+            return this.showPasswordLabel || this.$primevue.config.locale.aria.showPassword;
+        },
+        clearText() {
+            return this.$primevue.config.locale.clear;
         },
         isClearIconVisible() {
             return this.showClear && this.$filled && !this.disabled;
