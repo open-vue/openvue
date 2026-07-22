@@ -53,6 +53,7 @@ function run(command, commandArgs, options = {}) {
             process.stderr.write(result.stdout ?? '');
             process.stderr.write(result.stderr ?? '');
         }
+
         throw new Error(`${command} ${commandArgs.join(' ')} failed with exit code ${result.status}`);
     }
 
@@ -170,10 +171,13 @@ function assertLocalResolution(dir) {
 async function waitForUrl(url, child) {
     for (let attempt = 0; attempt < 80; attempt++) {
         if (child.exitCode !== null) throw new Error(`preview server exited with ${child.exitCode}`);
+
         try {
             const response = await fetch(url);
+
             if (response.ok) return;
         } catch {}
+
         await new Promise((resolvePromise) => setTimeout(resolvePromise, 250));
     }
 
@@ -192,6 +196,7 @@ function stopPreview(child) {
 
 function assertOverlayInViewport(box, viewport, label) {
     if (!box) throw new Error(`${label}: overlay has no browser layout box`);
+
     if (box.x < 0 || box.y < 0 || box.x + box.width > viewport.width || box.y + box.height > viewport.height) {
         throw new Error(`${label}: overlay is outside the ${viewport.width}x${viewport.height} viewport`);
     }
@@ -212,6 +217,7 @@ async function browserUmdSmoke(dir, instance) {
         if (request.url === '/') {
             response.setHeader('content-type', 'text/html; charset=utf-8');
             response.end(html);
+
             return;
         }
 
@@ -225,6 +231,7 @@ async function browserUmdSmoke(dir, instance) {
             response.end('Not found');
         }
     });
+
     await new Promise((resolvePromise, reject) => {
         server.once('error', reject);
         server.listen(0, '127.0.0.1', resolvePromise);
@@ -270,13 +277,17 @@ async function browserSmoke(dir, fixture) {
 
     try {
         const url = `http://127.0.0.1:${port}`;
+
         await waitForUrl(url, child);
+
         if (fixture.name === 'nuxt') {
             const html = await (await fetch(url)).text();
 
             if (!html.includes('Nuxt migration contract')) throw new Error(`${pkg.name}: the initial response did not contain SSR-rendered application content`);
         }
+
         const { chromium } = await import('@playwright/test');
+
         instance = await chromium.launch();
         const page = await instance.newPage();
         const errors = [];
@@ -313,9 +324,11 @@ async function browserSmoke(dir, fixture) {
         }
 
         const toastButton = page.locator('[data-testid="show-toast"]');
+
         if ((await toastButton.count()) > 0) {
             await toastButton.click();
             const toastMessage = page.getByRole('alert').first();
+
             await toastMessage.waitFor();
 
             if (fixture.name === 'volt') {
@@ -333,9 +346,11 @@ async function browserSmoke(dir, fixture) {
         }
 
         const confirmButton = page.locator('[data-testid="show-confirm"]');
+
         if ((await confirmButton.count()) > 0) {
             await confirmButton.click();
             const confirmDialog = page.locator('[role="alertdialog"], [role="dialog"]').first();
+
             await confirmDialog.waitFor();
             await page.keyboard.press('Escape');
             await confirmDialog.waitFor({ state: 'hidden' });
@@ -344,8 +359,10 @@ async function browserSmoke(dir, fixture) {
         if (fixture.name === 'vite-manual') {
             const viewport = page.viewportSize();
             const confirmPopupButton = page.locator('[data-testid="show-confirm-popup"]');
+
             await confirmPopupButton.click();
             const confirmPopup = page.locator('[data-pc-name="confirmpopup"]').filter({ hasText: 'Does the popup work?' });
+
             await confirmPopup.waitFor();
             assertOverlayInViewport(await confirmPopup.boundingBox(), viewport, `${pkg.name} confirmation popup`);
             await confirmPopup.getByRole('button').first().click();
@@ -357,16 +374,19 @@ async function browserSmoke(dir, fixture) {
             await page.getByRole('tab', { name: 'Data', exact: true }).click();
             const productTable = page.locator('[data-testid="product-table"]');
             const tableFilter = page.locator('[data-testid="table-filter"]');
+
             await tableFilter.fill('Zed');
             await productTable.getByText('Zed keyboard', { exact: true }).waitFor();
             await productTable.getByText('Alpha mouse', { exact: true }).waitFor({ state: 'hidden' });
             await tableFilter.fill('');
             await productTable.getByRole('columnheader', { name: 'Name' }).click();
             const firstProduct = (await productTable.locator('tbody tr').first().innerText()).trim();
+
             if (!firstProduct.startsWith('Alpha mouse')) throw new Error(`${pkg.name}: DataTable sorting did not put Alpha mouse first`);
 
             await page.locator('[data-testid="show-dialog"]').click();
             const staticDialog = page.locator('[role="dialog"]').filter({ hasText: 'Dialog content' });
+
             await staticDialog.waitFor();
             assertOverlayInViewport(await staticDialog.boundingBox(), viewport, `${pkg.name} dialog`);
             await page.keyboard.press('Escape');
@@ -374,12 +394,14 @@ async function browserSmoke(dir, fixture) {
 
             await page.locator('[data-testid="show-dynamic"]').click();
             const dynamicContent = page.locator('[data-testid="dynamic-dialog-content"]');
+
             await dynamicContent.waitFor();
             await page.keyboard.press('Escape');
             await dynamicContent.waitFor({ state: 'hidden' });
 
             await page.locator('[data-testid="show-popover"]').click();
             const popover = page.locator('[data-pc-name="popover"]').filter({ hasText: 'Positioned overlay' });
+
             await popover.waitFor();
             assertOverlayInViewport(await popover.boundingBox(), viewport, `${pkg.name} popover`);
             await page.keyboard.press('Escape');
@@ -387,6 +409,7 @@ async function browserSmoke(dir, fixture) {
         }
 
         const inertiaLink = page.locator('a[href="/second"]');
+
         if ((await inertiaLink.count()) > 0) {
             await inertiaLink.click();
             await page.waitForLoadState('networkidle');
@@ -408,9 +431,11 @@ async function packPackages() {
     if (!packOnly && manifest && existsSync(manifest)) {
         return Object.fromEntries(Object.entries(readPackageSync(manifest)).map(([name, file]) => [name, resolve(suppliedDir, file)]));
     }
+
     if (!skipBuild) run('pnpm', ['run', 'build:test-packages']);
 
     const artifactDir = suppliedDir ?? mkdtempSync(join(tmpdir(), 'openvue-artifacts-'));
+
     mkdirSync(artifactDir, { recursive: true });
     if (!suppliedDir) workDirs.push(artifactDir);
     const tarballs = {};
@@ -431,12 +456,21 @@ async function packPackages() {
     return tarballs;
 }
 
+function ensureMigrateCli() {
+    const entry = join(root, 'packages', 'migrate', 'dist', 'index.js');
+
+    if (!existsSync(entry)) run('pnpm', ['run', 'build:migrate']);
+
+    return entry;
+}
+
 async function testFixture(name, index, tarballs, migrationVersion) {
     const source = join(fixtureRoot, name);
 
     if (!existsSync(source)) throw new Error(`Unknown consumer fixture: ${name}`);
 
     const dir = mkdtempSync(join(tmpdir(), `openvue-${name}-`));
+
     workDirs.push(dir);
     cpSync(source, dir, { recursive: true });
     const pkg = readPackage(dir);
@@ -449,6 +483,7 @@ async function testFixture(name, index, tarballs, migrationVersion) {
         for (const path of ['storage/framework/cache/data', 'storage/framework/sessions', 'storage/framework/views']) {
             mkdirSync(join(dir, path), { recursive: true });
         }
+
         run('composer', ['install', '--no-interaction', '--prefer-dist', '--no-progress'], { cwd: dir });
         if (!existsSync(join(dir, '.env'))) copyFileSync(join(dir, '.env.example'), join(dir, '.env'));
         run('php', ['artisan', 'key:generate', '--force'], { cwd: dir });
@@ -456,6 +491,7 @@ async function testFixture(name, index, tarballs, migrationVersion) {
     }
 
     console.log(`\n=== ${name}: PrimeVue baseline (${manager}) ===`);
+
     if (!skipBaseline) {
         runPackage(manager, 'install', dir);
         runPackage(manager, 'typecheck', dir);
@@ -463,10 +499,12 @@ async function testFixture(name, index, tarballs, migrationVersion) {
     }
 
     console.log(`\n=== ${name}: migrate to local OpenVue artifacts ===`);
-    const migrateEntry = join(root, 'packages', 'migrate', 'dist', 'index.js');
+    const migrateEntry = ensureMigrateCli();
+
     run(process.execPath, [migrateEntry, dir, '--force', '--no-install']);
     assertMigrated(dir, migrationVersion);
     const afterFirstMigration = snapshot(dir);
+
     run(process.execPath, [migrateEntry, dir, '--force', '--no-install']);
     assertMigrated(dir, migrationVersion);
     assertSnapshotUnchanged(dir, afterFirstMigration, pkg.name);
