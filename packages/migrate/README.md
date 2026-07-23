@@ -48,7 +48,7 @@ The rename mapping:
 
 Left untouched on purpose — OpenVue still uses these upstream packages: `@primeuix/*`, `primeicons`, `primeflex`, `tailwindcss-primeui`. The `primevue` Nuxt config key also stays, because OpenVue's Nuxt module kept it.
 
-Renamed dependencies are pinned to the exact OpenVue version while OpenVue is in alpha; once stable releases start, the codemod will emit caret ranges instead.
+Renamed dependencies are pinned to the exact OpenVue version while OpenVue is in prerelease; once stable releases start, the codemod will emit caret ranges instead.
 
 ## Try OpenVue without changing any code
 
@@ -58,7 +58,7 @@ If you just want to evaluate OpenVue first, add only the override yourself inste
 // package.json (npm / bun; use pnpm.overrides for pnpm, resolutions for yarn)
 {
     "overrides": {
-        "primevue": "npm:openvue@0.0.1-alpha.1"
+        "primevue": "npm:openvue@0.0.1-beta.0"
     }
 }
 ```
